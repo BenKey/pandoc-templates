@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
+<html $if(lang)$ lang="$lang$" $endif$ $if(dir)$ dir="$dir$" $endif$>
 <head>
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
@@ -10,13 +10,13 @@ $endfor$
 $if(date-meta)$
   <meta name="dcterms.date" content="$date-meta$" />
 $endif$
-$if(keywords)$
-  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
-$endif$
 $if(description-meta)$
   <meta name="description" content="$description-meta$" />
 $endif$
-  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+$if(keywords)$
+  <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$$if(title-suffix)$ – $title-suffix$$endif$</title>
   <style>
     $styles.html()$
   </style>
@@ -59,7 +59,9 @@ $endif$
 $table-of-contents$
 </nav>
 $endif$
+<main>
 $body$
+</main>
 $for(include-after)$
 $include-after$
 $endfor$
