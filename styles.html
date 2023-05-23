@@ -1,22 +1,23 @@
 $if(document-css)$
 html {
-  line-height: $if(linestretch)$$linestretch$$else$1.5$endif$;
+  background-color: $if(backgroundcolor)$$backgroundcolor$$else$#fdfdfd$endif$;
+  color: $if(fontcolor)$$fontcolor$$else$#1a1a1a$endif$;
   font-family: $if(mainfont)$$mainfont$$else$Georgia, serif$endif$;
   font-size: $if(fontsize)$$fontsize$$else$20px$endif$;
-  color: $if(fontcolor)$$fontcolor$$else$#1a1a1a$endif$;
-  background-color: $if(backgroundcolor)$$backgroundcolor$$else$#fdfdfd$endif$;
+  line-height: $if(linestretch)$$linestretch$$else$1.5$endif$;
 }
 body {
+  -webkit-hyphens: auto;
+  font-kerning: normal;
+  hyphens: auto;
   margin: 0 auto;
   max-width: 36em;
+  padding-bottom: $if(margin-bottom)$$margin-bottom$$else$50px$endif$;
   padding-left: $if(margin-left)$$margin-left$$else$50px$endif$;
   padding-right: $if(margin-right)$$margin-right$$else$50px$endif$;
   padding-top: $if(margin-top)$$margin-top$$else$50px$endif$;
-  padding-bottom: $if(margin-bottom)$$margin-bottom$$else$50px$endif$;
-  hyphens: auto;
-  word-wrap: break-word;
   text-rendering: optimizeLegibility;
-  font-kerning: normal;
+  word-wrap: break-word;
 }
 @media (max-width: 600px) {
   body {
@@ -36,6 +37,9 @@ body {
   }
   h2, h3, h4 {
     page-break-after: avoid;
+  }
+  .hidden-print {
+    display: none !important;
   }
 }
 p {
@@ -61,17 +65,17 @@ h6 {
   font-weight: normal;
 }
 ol, ul {
-  padding-left: 1.7em;
   margin-top: 1em;
+  padding-left: 1.7em;
 }
 li > ol, li > ul {
   margin-top: 0;
 }
 blockquote {
-  margin: 1em 0 1em 1.7em;
-  padding-left: 1em;
   border-left: 2px solid #e6e6e6;
   color: #606060;
+  margin: 1em 0 1em 1.7em;
+  padding-left: 1em;
 }
 code {
   font-family: $if(monofont)$$monofont$$else$Menlo, Monaco, 'Lucida Console', Consolas, monospace$endif$;
@@ -95,8 +99,8 @@ pre code {
   overflow: visible;
 }
 .sourceCode {
- background-color: transparent;
- overflow: visible;
+  background-color: transparent;
+  overflow: visible;
 }
 hr {
   background-color: #1a1a1a;
@@ -116,9 +120,9 @@ table caption {
   margin-bottom: 0.75em;
 }
 tbody {
-  margin-top: 0.5em;
-  border-top: 1px solid $if(fontcolor)$$fontcolor$$else$#1a1a1a$endif$;
   border-bottom: 1px solid $if(fontcolor)$$fontcolor$$else$#1a1a1a$endif$;
+  border-top: 1px solid $if(fontcolor)$$fontcolor$$else$#1a1a1a$endif$;
+  margin-top: 0.5em;
 }
 th {
   border-top: 1px solid $if(fontcolor)$$fontcolor$$else$#1a1a1a$endif$;
@@ -137,24 +141,64 @@ header {
 #TOC a:not(:hover) {
   text-decoration: none;
 }
+#skip-to-main-content a {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  left: -10000px;
+  overflow: hidden;
+  position: absolute;
+  top: auto;
+  width: 1px;
+}
+#skip-to-main-content a:active,
+#skip-to-main-content a:focus {
+  clip: auto;
+  height: auto;
+  outline-style: solid !important;
+  outline-width: thick !important;
+  position: static;
+  width: auto;
+}
 $endif$
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
+code {
+  white-space: pre-wrap;
+}
+span.smallcaps {
+  font-variant: small-caps;
+}
+span.underline {
+  text-decoration: underline;
+}
+div.column {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+}
+div.hanging-indent {
+  margin-left: 1.5em;
+  text-indent: -1.5em;
+}
+ul.task-list {
+  list-style: none;
+}
 $if(quotes)$
-q { quotes: "“" "”" "‘" "’"; }
+q {
+  quotes: "“" "”" "‘" "’";
+}
 $endif$
 $if(highlighting-css)$
 $highlighting-css$
 $endif$
 $if(displaymath-css)$
-.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+.display.math {
+  display: block;
+  margin: 0.5rem auto;
+  text-align: center;
+}
 $endif$
 $if(csl-css)$
-div.csl-bib-body { }
+div.csl-bib-body {
+}
 div.csl-entry {
   clear: both;
 $if(csl-entry-spacing)$
@@ -162,16 +206,16 @@ $if(csl-entry-spacing)$
 $endif$
 }
 .hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+  margin-left: 2em;
+  text-indent: -2em;
 }
 div.csl-left-margin {
-  min-width:2em;
-  float:left;
+  float: left;
+  min-width: 2em;
 }
 div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
+  margin-left: 2em;
+  padding-left: 1em;
 }
 div.csl-indent {
   margin-left: 2em;
