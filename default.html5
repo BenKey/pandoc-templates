@@ -37,7 +37,7 @@ $for(js)$
 $endfor$
 </head>
 <body>
-<div id="skip-to-main-content" class="hidden-print"><a href="#main-content">Skip to Main Content</a></div>
+<a href="#main-content" id="top-of-page" class="skip-nav visually-hidden-focusable" data-target-id="main-content">Skip to Main Content</a>
 $for(include-before)$
   $include-before$
 $endfor$
@@ -105,6 +105,9 @@ $else$
 </section>
 $endif$
 </main>
+<div class="back-to-top">
+<a href="#top-of-page">Back to top</a>
+</div>
 $for(include-after)$
 $include-after$
 $endfor$

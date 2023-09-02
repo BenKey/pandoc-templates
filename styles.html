@@ -180,24 +180,53 @@ header {
   text-decoration: none;
 }
 
-#skip-to-main-content a {
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  left: -10000px;
-  overflow: hidden;
+.skip-nav {
+  background: White;
+  border: 1px solid Red;
+  color: rgb(204, 0, 0);
+  left: 10px;
+  padding: 5px;
   position: absolute;
-  top: auto;
-  width: 1px;
+  top: 10px;
 }
-#skip-to-main-content a:active,
-#skip-to-main-content a:focus {
-  clip: auto;
-  height: auto;
+
+.skip-nav-relative {
+  background: White;
+  border: 1px solid Red;
+  color: rgb(204, 0, 0);
+  position: relative;
+}
+
+.skip-nav:active,
+.skip-nav:focus,
+.skip-nav-relative:active,
+.skip-nav-relative:focus {
+  outline-color: DarkViolet !important;
   outline-style: solid !important;
   outline-width: thick !important;
-  position: static;
-  width: auto;
+  text-decoration: underline;
 }
+
+.sr-only,
+.visually-hidden,
+.visually-hidden-focusable:not(:focus):not(:focus-within) {
+  border: 0 !important;
+  clip: rect(0, 0, 0, 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}
+
+.back-to-top {
+  font-size: 90%;
+  padding-bottom: 10px;
+  text-align: right;
+}
+
 $endif$
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
