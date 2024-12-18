@@ -27,14 +27,8 @@ $for(header-includes)$
   $header-includes$
 $endfor$
 $if(math)$
-$if(mathjax)$
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-$endif$
   $math$
 $endif$
-$for(js)$
-  <script src="$js$"></script>
-$endfor$
 </head>
 <body>
 <a href="#main-content" id="top-of-page" class="skip-nav visually-hidden-focusable" data-target-id="main-content">Skip to Main Content</a>
